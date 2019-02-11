@@ -1,4 +1,6 @@
-
+;; Author: Haseeb
+;; 2-11-2019
+;; Make an array of offsets with geometric series as distances
 
 (defun c:geometricarray ()
   	(setq line (entsel))
@@ -6,9 +8,9 @@
   	(print (cadr line))
   	(setq x 1)
   	(setq factor (getreal "Factor"))
+  	(princ factor)
   	(if (<= factor 1) (setq factor 1.1) )
-  	(print factor)
-	(while (< x distanc)
+	(while (= 1 1)
   		(command "_.offset" x line pause "")
   		(setq line (entlast))
   		(setq x (* x factor))
