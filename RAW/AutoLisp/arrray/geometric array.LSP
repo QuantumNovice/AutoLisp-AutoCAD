@@ -1,0 +1,17 @@
+
+(defun c:g2()
+  (setq line (entsel))
+  (setq x0 (car (cadr line)))
+  (setq x1 (car (getpoint "2nd Line")))
+  (setq r (/ x1 x0))
+  (setq end (car (getpoint "End")))
+  (setq n 0)
+  (setq x (* x0 (expt r (- n 1))))
+  (while (< x end)
+    	(setq x (* x0 (expt r (- n 1))))
+    	;;(print (expt (- end x) 2))
+	(command "_.offset" x line pause "")
+    	(setq n (+ n 1))
+    )
+
+  )

@@ -1,0 +1,6 @@
+    (defun C:BRAT(/ useros) 
+      (setq useros (getvar "OSMODE")) 
+      (command "OSNAP" "int") 
+      (command "_.BREAK" pause "F" pause "@") 
+      (setvar "OSMODE" useros) 
+    ) 

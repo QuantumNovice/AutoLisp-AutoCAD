@@ -1,0 +1,16 @@
+
+
+(defun c:a2 ()
+  	(setq x 1)
+  	(setq start (getpoint "start"))
+  	(setq end (getpoint "end"))
+  	(setq distanc (- (cadr end) (cadr start)))
+  	(princ distanc)
+  	(setq factor (getreal "Factor"))
+  	(if (<= factor 1) (setq factor 1.1) )
+  	(print factor)
+  	(while (< x distanc)
+	  (command "line" (list (car start) x) (list (+ (car start) 10) x) "")
+	  (setq x (* x factor))
+	)
+  )
